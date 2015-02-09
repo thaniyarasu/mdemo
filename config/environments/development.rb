@@ -44,7 +44,7 @@ Rails.application.configure do
   config.action_mailer.smtp_settings = {
       address:              'smtp.gmail.com',
       port:                 587,
-      domain:               'gmail.com',
+      domain:               'tranquil-brook-2843.herokuapp.com',
       user_name:            'ovigzhero',
       password:             'pinkyponkypanky',
       authentication:       'plain',
