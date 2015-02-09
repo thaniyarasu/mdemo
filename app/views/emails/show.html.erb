@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Call:</strong>
+  <%= @email.call %>
+</p>
+<p>
+  <strong>Audio :</strong>
+  <%= @email.audio %>
+</p>
+<p>
+  <strong>Voice:</strong>
+  <%= @email.voice %>
+</p>
+
+
+<p>
+  <strong>Subject:</strong>
+  <%= @email.subject %>
+</p>
+
+<p>
+  <strong>Message:</strong>
+  <%= @email.message %>
+</p>
+
+<p>
+  <strong>Recipients:</strong>
+  <%= @email.recipients %>
+</p>
+
+
+<%= link_to 'Edit', edit_email_path(@email) %> |
+<%= link_to 'Back', emails_path %>

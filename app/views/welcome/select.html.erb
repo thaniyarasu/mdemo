@@ -1,0 +1,34 @@
+<%= form_tag({controller: :emails ,action: :new}, method: :post) do %>
+    <%= hidden_field_tag "invite[id]", @invite.id %>
+<table>
+  <%@parser.sheets.each_with_index do |n,i| %>
+      <%s = @parser.sheet(i)%>
+          <%row0 = s.row(s.first_row)%>
+      <th>
+        <%row0.each do |value | %>
+            <td>
+              <b><%= value%></b>
+            </td>
+        <%end%>
+      </th>
+
+          <% (s.first_row+1).upto(s.last_row) do |e| %>
+          <tr>
+            <td>
+              <%= check_box_tag "invite[selected][]", e %>
+            </td>
+            <%s.row(e).each_with_index do |value,index | %>
+            <td>
+              <%= value%>
+            </td>
+            <%end%>
+          </tr>
+
+        <%end %>
+  <% end %>
+
+</table>
+    <div class="actions">
+      <%= submit_tag "Create Email" %>
+    </div>
+<% end %>

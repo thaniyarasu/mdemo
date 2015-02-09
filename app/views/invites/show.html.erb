@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @invite.name %>
+</p>
+
+<p>
+  <strong>Document:</strong>
+  <%= @invite.document %>
+</p>
+<p><%= link_to 'Select Users To Invite', {controller: 'welcome',action: 'select',id: @invite.id} %></p>
+
+<%= link_to 'Edit', edit_invite_path(@invite) %> |
+<%= link_to 'Back', invites_path %>

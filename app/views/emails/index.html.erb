@@ -1,0 +1,43 @@
+<p id="notice"><%= notice %></p>
+
+<%= link_to 'All invices ', invites_path %>
+
+
+<h1>Listing Emails</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Call</th>
+      <th>Audio</th>
+      <th>Voice</th>
+
+      <th>Subject</th>
+      <th>Message</th>
+      <th>Recipients</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @emails.each do |email| %>
+      <tr>
+        <td><%= email.call %></td>
+        <td><%= email.audio %></td>
+        <td><%= email.voice %></td>
+
+        <td><%= email.subject %></td>
+        <td><%= email.message %></td>
+        <td><%= email.recipients %></td>
+
+        <td><%= link_to 'Show', email %></td>
+        <td><%= link_to 'Edit', edit_email_path(email) %></td>
+        <td><%= link_to 'Destroy', email, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Email', new_email_path %>

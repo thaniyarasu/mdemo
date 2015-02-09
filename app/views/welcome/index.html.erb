@@ -1,0 +1,37 @@
+<h1>New Invite</h1>
+
+<%= form_for(@invite ||= Invite.new ,url: {action: "invite"},  html: {multipart: true}) do |f| %>
+    <% if @invite.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@invite.errors.count, "error") %> prohibited this invite from being saved:</h2>
+
+          <ul>
+            <% @invite.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+
+    <div class="field">
+      <%= f.label :name %><br>
+      <%= f.text_field :name %>
+    </div>
+    <div class="field">
+      <%= f.label :document %><br>
+      <%= f.file_field :document %>
+    </div>
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+<% end %>
+
+
+<%= link_to 'All invites', invites_path %>
+
+<br>
+<br>
+<a href="/n0.csv">Sample CSV File</a><br>
+<a href="/n0.xls">Sample XLS File</a><br>
+<a href="/n0.xlsx">Sample XLSX File</a><br>
+
